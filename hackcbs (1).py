@@ -89,9 +89,15 @@ answers = []
 answers.append(input('How would you describe your experience at your workplace/college/school in the past few days?'))
 answers.append(input('How do you like to spend your leisure time? How do you feel after it?'))
 answers.append(input('Life has its ups and downs. Although handling successes can be difficult, setbacks can affect mental health strongly. How do you manage your emotions after failures?'))
-#answers.append(input('Any recent pleasant experience that you would like to share?'))
+answers.append(input('Are there any improvements/decline in your salary/grades?'))
 #answers.append(input('Any recent unpleasant experience that you would like to share?'))
 answers.append(input('In a broad sense, how would you describe the way your life is going on?'))
 #answers.append(input('How would you describe your experience at your workplace/college/school in the past few days?'))
 results = model.predict(answers)
-print('Your mental health score is:', postprocessor(results))
+score = postprocessor(results)
+print('Your mental health score is:', score)
+
+if score < 25:
+    print("You are going through a bad phase in life. But don't worry, bad times are not permanent. Try to seek help from a trained professional to improve your mental health.")
+else:
+    print("Your mental health looks great! Continue enjoying life and try to help others who are struggling with their mental health.")
