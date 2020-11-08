@@ -7,6 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1bUwiouyhn8lMXxU2q5oqB3u0AViFZhQC
 """
 
+import os
 import pandas as pd
 import tensorflow as tf
 import tensorflow_hub as hub
@@ -15,7 +16,7 @@ import numpy as np
 #train_data.head()
 
 def preprocess(file):
-    path = '/content/'+file+'.txt'
+    path = os.getcwd()+file+'.txt'
     data = pd.read_csv(path, sep = ';')
     hos = []
     for i in range(len(data.emotion)):
